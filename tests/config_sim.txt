@@ -1,0 +1,43 @@
+//  TESTS DONE FOR CONFIG SIM
+RUN GRACEFULLY = RUNS DEFAULT IF ERROR OCCURS
+
+COMMAND LINE ARGS (what user provides)
+/configuration_sim config_txt length_of_sim start_time_of_initial_bus
+
+POTENTIAL ERRORS(OR ARG EXCLUSION) RESULTS IN CONFIG COMMAND LINE
+CONFIG TEXT
+1. config.txt not specified
+  - if config.txt is missing
+  Ex: user only runs executable
+  Res: RUNS config.txt printing error message
+2. config.txt is not correct
+  - Assuming that all .txt files in config folder are CORRECT
+  - if config.txt is not found in config folder
+  Ex: user does not provide config.txt that could be found in config
+  Res: runs default printing error message
+LENGTH_OF_SIM (provides length of config_sim)
+1. If length_of_sim NOT provided
+  Ex: user only provides exec and config.txt
+  Res: Config Sim runs with default length_of_sim 50
+2. If length of sim is not numerical
+  Ex: user provides "ab" for length of sim
+  Res: Config sim run default with Sim printing error message
+START TIME OF INITIAL BUS
+1. if NOT provided
+  Ex: user only provides exec, config.txt, length_of_sim
+  Res: Config sim runs with default start time of 10 for initial bus
+2. If start time is not numerical
+  Ex: user provides "ab" for start time
+  Res: Runs default of 10 from config sim printing error message
+OTHER POTENTIAL ERRORS
+1. User provides more than 4 arguments
+  Ex: User provides more than arguments specified
+  Res: Runs default from config sim and prints out error message
+- CONFIG SIM will print out any errors that occur in command line above
+  Ex: have over 4 arguments and length of bus is "ab"
+  Res: Prints default and prints out the error message of length of bus and over
+  4 arguments provided
+
+  - Only if missing config.txt will error be printed out rather than any other
+  txt is because config text is important to running the program and will alert
+  user that they have not provided their data  that they can run.
